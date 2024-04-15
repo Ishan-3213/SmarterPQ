@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SMPQ.iml" filepath="$PROJECT_DIR$/SMPQ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SmartPQ/SmartPQ.iml" filepath="$PROJECT_DIR$/SmartPQ/SmartPQ.iml" />
     </modules>
   </component>
 </project>
