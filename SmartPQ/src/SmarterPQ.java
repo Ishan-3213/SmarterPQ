@@ -350,8 +350,13 @@ public class SmarterPQ {
 
         System.out.println("Test Case 11: Current State: " + heap2.status());
 
-        heap2.remove(5);
-        printArray("Test Case 12: Removing an Element 5", heap2.toArray());
+        try {
+            heap2.remove(5);
+            printArray("Test Case 12: Removing an Element 5", heap2.toArray());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Test Case 12: Exception Caught: " + e.getMessage());
+        }
+
 
         System.out.println("Test Case 13: Size: " + heap2.size());
 
@@ -396,7 +401,7 @@ public class SmarterPQ {
 
         SmartPriorityQueue<Integer> heap8 = new SmartPriorityQueue<>(5, (a, b) -> a.compareTo(b) < 0);
         heap8.insert(6);
-        printArray("Test Case 21: Removing 10 from Single-Element Min-Heap", heap8.toArray());
+        printArray("Test Case 21: Removing 6 from Single-Element Min-Heap", heap8.toArray());
         heap8.removeTop();
         printArray("Test Case 21: After Removing from Single-Element Min-Heap", heap8.toArray());    }
 
