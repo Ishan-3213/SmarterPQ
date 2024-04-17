@@ -307,13 +307,10 @@ public class SmarterPQ {
         heap1.insert(4);
         heap1.insert(2);
 
-
-
-        printArray("Test Case 1: Insertion Min-Heap:", heap1.toArray());
-
+        printArray("Test Case 1 (heap1): Insertion Min-Heap", heap1.toArray());
 
         heap1.removeTop();
-        printArray("Test Case 2: Removed top 2 items", heap1.toArray());
+        printArray("Test Case 2 (heap1): Removed top items", heap1.toArray());
 
         SmartPriorityQueue<Integer> heap2 = new SmartPriorityQueue<>(5, (a, b) -> a.compareTo(b) > 0);
         heap2.insert(3);
@@ -321,57 +318,58 @@ public class SmarterPQ {
         heap2.insert(5);
         heap2.insert(4);
         heap2.insert(2);
-        printArray("Test Case 3: Max-Heap Insertion:", heap2.toArray());
+        printArray("Test Case 3 (heap2): Max-Heap Insertion", heap2.toArray());
 
         heap2.removeTop();
         heap2.removeTop();
-        printArray("Test Case 4: Removed top 2 items", heap2.toArray());
+        printArray("Test Case 4 (heap2): Removed top 2 items", heap2.toArray());
 
 
-        printArray("Test Case 5: Before Toggling to Max Status", heap1.toArray());
+        printArray("Test Case 5 (heap1): Before Toggling to Max Status", heap1.toArray());
         heap1.toggle();
-        printArray("Test Case 5: After Toggling to Max Status", heap1.toArray());
+        printArray("Test Case 5 (heap1): After Toggling to Max Status", heap1.toArray());
 
         heap2.removeTop();
-        printArray("Test Case 6: Removing Element", heap2.toArray());
+        printArray("Test Case 6 (heap2): Removing Element", heap2.toArray());
 
-        System.out.println("Test Case 7: Top Element: " + heap2.top());
+        System.out.println("Test Case 7 (heap2): Top Element: " + heap2.top());
 
-        printArray("Test Case 8: Before Toggling to Min Status", heap2.toArray());
+        printArray("Test Case 8 (heap2): Before Toggling to Min Status", heap2.toArray());
         heap2.toggle();
-        printArray("Test Case 8: After Toggling to Min Status", heap2.toArray());
+        printArray("Test Case 8 (heap2): After Toggling to Min Status", heap2.toArray());
 
 
-        heap2.replaceKey(3, 6);
-        printArray("Test Case 9: Replacing Key 3->6 in Toggled Min-Heap", heap2.toArray());
+        heap2.replaceKey(1, 6);
+        printArray("Test Case 9 (heap2): Replacing Key 1->6 in Toggled Min-Heap", heap2.toArray());
 
         heap2.replaceValue(2, 8);
-        printArray("Test Case 10: Replacing Value 2->8 in Min-Heap", heap2.toArray());
+        printArray("Test Case 10 (heap2): Replacing Value 2->8 in Min-Heap", heap2.toArray());
 
-        System.out.println("Test Case 11: Current State: " + heap2.status());
+        System.out.println("Test Case 11 (heap2): Current State: " + heap2.status());
 
         try {
             heap2.remove(5);
-            printArray("Test Case 12: Removing an Element 5", heap2.toArray());
+            printArray("Test Case 12 (heap2): Removing an Element 5", heap2.toArray());
         } catch (IllegalArgumentException e) {
-            System.out.println("Test Case 12: Exception Caught: " + e.getMessage());
+            System.out.println("Test Case 12 (heap2): Exception Caught: " + e.getMessage());
         }
 
 
-        System.out.println("Test Case 13: Size: " + heap2.size());
+        System.out.println("Test Case 13 (heap2): Size: " + heap2.size());
 
-        System.out.println("Test Case 14: Is Empty? " + heap2.isEmpty());
+        System.out.println("Test Case 14 (heap2): Is Empty? " + heap2.isEmpty());
 
         SmartPriorityQueue<Integer> heap3 = new SmartPriorityQueue<>(3, (a, b) -> a.compareTo(b) > 0);
         heap3.insert(1);
         heap3.insert(2);
         heap3.insert(3);
-        printArray("Test Case 15: Inserting More Elements Than Initial Capacity", heap3.toArray());
         heap3.insert(5);
+        printArray("Test Case 15 (heap3): Inserting More Elements Than Initial Capacity", heap3.toArray());
         heap3.insert(4);
-        printArray("After Inserting More Elements 5, 25", heap3.toArray());
+        heap3.insert(6);
+        printArray("(heap3): After Inserting More Elements 6, 4", heap3.toArray());
 
-        System.out.println("Test Case 16: Removing Elements Until Empty");
+        System.out.println("Test Case 16 (heap3): Removing Elements Until Empty");
         while (!heap3.isEmpty()) {
             heap3.removeTop();
             printArray("Removing Elements Until Empty", heap3.toArray());
@@ -379,31 +377,31 @@ public class SmarterPQ {
 
         SmartPriorityQueue<Integer> heap4 = new SmartPriorityQueue<>(5, (a, b) -> a.compareTo(b) < 0);
         heap4.insert(9);
-        printArray("Test Case 17: Inserting into Empty Min-Heap", heap4.toArray());
+        printArray("Test Case 17 (heap4): Inserting into Empty Min-Heap", heap4.toArray());
 
         SmartPriorityQueue<Integer> heap5 = new SmartPriorityQueue<>(5, (a, b) -> a.compareTo(b) > 0);
         try {
             heap5.removeTop();
         } catch (IllegalStateException e) {
-            System.out.println("Test Case 18: Exception Caught: " + e.getMessage());
+            System.out.println("Test Case 18 (heap5): Exception Caught: " + e.getMessage());
         }
 
         SmartPriorityQueue<Integer> heap6 = new SmartPriorityQueue<>(5, (a, b) -> a.compareTo(b) < 0);
         try {
             System.out.println("Test Case 19: Top Element of Empty Heap: " + heap6.top());
         } catch (IllegalStateException e) {
-            System.out.println("Test Case 19: Exception Caught: " + e.getMessage());
+            System.out.println("Test Case 19 (heap6): Tried to get Top Element of Empty Heap -> Exception Caught: " + e.getMessage());
         }
 
         SmartPriorityQueue<Integer> heap7 = new SmartPriorityQueue<>(5, (a, b) -> a.compareTo(b) < 0);
         heap7.toggle();
-        System.out.println("Test Case 20: Toggling an Empty Heap State: " + heap7.status());
+        System.out.println("Test Case 20 (heap7): Toggling an Empty Heap State: " + heap7.status());
 
         SmartPriorityQueue<Integer> heap8 = new SmartPriorityQueue<>(5, (a, b) -> a.compareTo(b) < 0);
         heap8.insert(6);
-        printArray("Test Case 21: Removing 6 from Single-Element Min-Heap", heap8.toArray());
+        printArray("Test Case 21 (heap8): Removing 6 from Single-Element Min-Heap", heap8.toArray());
         heap8.removeTop();
-        printArray("Test Case 21: After Removing from Single-Element Min-Heap", heap8.toArray());    }
+        printArray("Test Case 21 (heap8): After Removing from Single-Element Min-Heap", heap8.toArray());    }
 
     /**
      * Prints an array of objects.

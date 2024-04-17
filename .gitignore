@@ -25,5 +25,7 @@ bin/
 ### VS Code ###
 .vscode/
 
+.idea/
+SMPQ.iml
 ### Mac OS ###
 .DS_Store
